@@ -7,6 +7,12 @@ branches:
 services: docker
 install: true
 
+env:
+  - NODE_VERSION="8.10"
+
+before_install:
+- nvm install $NODE_VERSION
+
 language: C
 
 script: ./travis-build.sh

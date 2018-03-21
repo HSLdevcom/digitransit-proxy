@@ -17,19 +17,17 @@ echo $ADDHOSTS
 cd test
 
 npm install
+npm install -g forever
+forever start server.js
+sleep 5
 
 CONTAINER_ID=`docker run -d -p 9000:8080 $ADDHOSTS hsldevcom/digitransit-proxy:integrationtest`
 
 echo started proxy-container $CONTAINER_ID
-echo starting echo server...
-node server.js &
-PID=$!
 
 npm test
 STATUS=$?
 
-echo "stopping test server (pid:$PID)"
-kill -9 $PID
 echo stopping proxy-container $CONTAINER_ID
 docker stop $CONTAINER_ID
 

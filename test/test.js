@@ -167,7 +167,8 @@ describe('matka ui', function() {
 });
 
 describe('waltti ui', function() {
-  const cities = ['hameenlinna', 'jyvaskyla', 'joensuu', 'kotka', 'kuopio', 'lahti', 'lappeenranta', 'mikkeli', 'oulu', 'turku'];
+  const cities = ['hameenlinna', 'jyvaskyla', 'joensuu', 'kotka', 'kuopio', 'lahti',
+                  'lappeenranta', 'mikkeli', 'oulu', 'turku', 'tampere'];
 
   cities.forEach(function(city) {
     testRedirect('dev-'+city+'.digitransit.fi','/kissa','https://dev-'+city+'.digitransit.fi/kissa');
@@ -181,6 +182,9 @@ describe('waltti ui', function() {
 
   testRedirect('reittiopas.hameenlinna.fi','/kissa','https://reittiopas.hameenlinna.fi/kissa');
   testProxying('reittiopas.hameenlinna.fi','/','digitransit-ui-waltti:8080', true);
+
+  testRedirect('pilottirepa.tampere.fi','/kissa','https://pilottirepa.tampere.fi/kissa');
+  testProxying('pilottirepa.tampere.fi','/','digitransit-ui-waltti:8080', true);
 
   it('https should not redirect', function(done) {
     httpsGet('turku.digitransit.fi','/kissa').end((err,res)=>{
