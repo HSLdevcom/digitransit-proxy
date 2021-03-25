@@ -1,7 +1,7 @@
 #!/bin/bash
 set +e
 #set -x
-docker build -t hsldevcom/digitransit-proxy:integrationtest .
+docker build --no-cache -t hsldevcom/digitransit-proxy:integrationtest .
 
 PROXIED_HOSTS=`grep proxy_pass *.conf|cut -d'/' -f3|cut -d':' -f1|grep -v "\."|sort|uniq`
 
