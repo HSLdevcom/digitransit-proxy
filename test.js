@@ -243,10 +243,10 @@ describe('waltti ui', function() {
   });
 });
 
-/*describe('linjasto2021 ui', function() {
+describe('linjasto2021 ui', function() {
   testRedirect('linjasto2021.digitransit.fi','/kissa','https://linjasto2021.digitransit.fi/kissa');
   testProxying('linjasto2021.digitransit.fi','/','digitransit-ui-linjasto2021:8080', true);
-});*/
+});
 
 describe('sentry-analytics', function() {
   testProxying('sentry-analytics.digitransit.fi','/','digitransit-sentry-analytics:8080', true);
