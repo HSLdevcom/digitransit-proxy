@@ -174,13 +174,13 @@ describe('api.digitransit.fi', function() {
   testResponseHeader('api.digitransit.fi','/routing-data/v2/waltti/router-config.json', 'access-control-allow-origin', '*');
   testProxying('api.digitransit.fi','/routing-data/v2/finland/router-finland.zip','opentripplanner-data-con-finland:8080');
   testResponseHeader('api.digitransit.fi','/routing-data/v2/finland/router-config.json', 'access-control-allow-origin', '*');
-  testProxying('dev-api.digitransit.fi','/routing-data/v3/hsl/router-hsl.zip','opentripplanner-data-con-hsl-v3:8080');
+  testProxying('dev-api.digitransit.fi','/routing-data/v3/hsl/router-hsl.zip','opentripplanner-data-server-hsl-v3:8080');
   testResponseHeader('dev-api.digitransit.fi','/routing-data/v3/hsl/router-config.json', 'access-control-allow-origin', '*');
-  testProxying('dev-api.digitransit.fi','/routing-data/v3/waltti/router-waltti.zip','opentripplanner-data-con-waltti-v3:8080');
+  testProxying('dev-api.digitransit.fi','/routing-data/v3/waltti/router-waltti.zip','opentripplanner-data-server-waltti-v3:8080');
   testResponseHeader('dev-api.digitransit.fi','/routing-data/v3/waltti/router-config.json', 'access-control-allow-origin', '*');
-  testProxying('dev-api.digitransit.fi','/routing-data/v3/waltti-alt/router-waltti.zip','opentripplanner-data-con-waltti-alt-v3:8080');
+  testProxying('dev-api.digitransit.fi','/routing-data/v3/waltti-alt/router-waltti.zip','opentripplanner-data-server-waltti-alt-v3:8080');
   testResponseHeader('dev-api.digitransit.fi','/routing-data/v3/waltti-alt/router-config.json', 'access-control-allow-origin', '*');
-  testProxying('dev-api.digitransit.fi','/routing-data/v3/finland/router-finland.zip','opentripplanner-data-con-finland-v3:8080');
+  testProxying('dev-api.digitransit.fi','/routing-data/v3/finland/router-finland.zip','opentripplanner-data-server-finland-v3:8080');
   testResponseHeader('dev-api.digitransit.fi','/routing-data/v3/finland/router-config.json', 'access-control-allow-origin', '*');
   testProxying('api.digitransit.fi','/ui/v3/matka/sw.js','digitransit-ui-matka-v3:8080');
   testProxying('api.digitransit.fi','/ui/v3/hsl/sw.js','digitransit-ui-hsl-v3:8080');
