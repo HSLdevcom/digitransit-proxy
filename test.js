@@ -315,8 +315,7 @@ describe('otp debug', function() {
 describe('ext-proxy', function() {
   this.timeout(5000);
   testCaching(null,'/out/helsinki-fi.smoove.pro/api-public/stations',false);
-  testCaching(null,'/out/data.foli.fi/citybike/smoove',false);
-  testCaching(null,'/out/92.62.36.215/RTIX/trip-updates',false);
+  testCaching(null,'/out/data.foli.fi/gtfs-rt/reittiopas',false);
   testCaching(null,'/out/stables.donkey.bike/api/public/gbfs/2/donkey_lappeenranta/en/station_status.json',false);
 });
 
