@@ -25,7 +25,7 @@ jobs:
       - name: Run tests
         run: yarn test
   docker-push:
-    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/hotfix'
     needs:
       - test
     runs-on: ubuntu-latest
