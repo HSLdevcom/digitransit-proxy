@@ -173,7 +173,7 @@ describe('api.digitransit.fi', function() {
   testProxying('api.digitransit.fi','/map/v3/hsl-map/','hsl-map-server:8080');
   testProxying('api.digitransit.fi','/map/v3/hsl/ticket-sales-map/','hsl-map-server:8080');
   testProxying('api.digitransit.fi','/map/v3-kela/kela/en/rental-stations/','opentripplanner-kela-v2:8080');
-  testProxying('dev-api.digitransit.fi','/routing/v2-kela/routers/kela','opentripplanner-kela-v2:8080');
+  testProxying('dev-api.digitransit.fi','/routing/v2-kela/routers/kela/index/graphql','opentripplanner-kela-v2:8080');
   testProxying('api.digitransit.fi','/ui/v3/matka/sw.js','digitransit-ui-matka-v3:8080');
   testProxying('api.digitransit.fi','/ui/v3/hsl/sw.js','digitransit-ui-hsl-v3:8080');
   testProxying('api.digitransit.fi','/ui/v3/waltti/sw.js','digitransit-ui-waltti-v3:8080');
