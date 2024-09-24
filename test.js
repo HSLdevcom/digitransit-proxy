@@ -157,6 +157,7 @@ describe('api.digitransit.fi', function() {
   v2routers.forEach(function(router) {
     testProxying('api.digitransit.fi',`/routing/v2/routers/${router}/index/graphql`, `opentripplanner-${router}-v2:8080`);
     testProxying('api.digitransit.fi',`/routing/v2/${router}/gtfs/v1`, `opentripplanner-${router}-v2:8080`);
+    testProxying('api.digitransit.fi',`/routing/v2/${router}/health`, `opentripplanner-${router}-v2:8080`);
     testResponseHeader('api.digitransit.fi',`/routing-data/v3/${router}/router-config.json`, 'access-control-allow-origin', '*');
     testProxying('api.digitransit.fi',`/routing-data/v3/${router}/router-config.json`,`opentripplanner-data-server-${router}-v3:8080`);
     testProxying('api.digitransit.fi',`/map/v3/${router}/en/rental-stations/`, `opentripplanner-${router}-v2:8080`);
