@@ -156,6 +156,7 @@ describe('api.digitransit.fi', function() {
   testProxying('api.digitransit.fi','/map/v3/hsl/ticket-sales-map/','hsl-map-server:8080');
   testProxying('api.digitransit.fi','/map/v3/hsl/en/rental-stations/','opentripplanner-hsl-v2:8080');
   testProxying('api.digitransit.fi','/map/v3/waltti/en/rental-stations/','opentripplanner-waltti-v2:8080');
+  testProxying('api.digitransit.fi','/map/v3/hsl/fi/stops,stations/tilejson.json','opentripplanner-hsl-v2:8080');
   testProxying('api.digitransit.fi','/map/v3/finland/en/rental-stations/','opentripplanner-finland-v2:8080');
   testProxying('api.digitransit.fi','/map/v3/varely/en/stops,stations/','opentripplanner-varely-v2:8080');
   testProxying('api.digitransit.fi','/map/v3/waltti-alt/en/rental-stations/','opentripplanner-waltti-alt-v2:8080');
@@ -315,8 +316,7 @@ describe('otp debug', function() {
 describe('ext-proxy', function() {
   this.timeout(5000);
   testCaching(null,'/out/helsinki-fi.smoove.pro/api-public/stations',false);
-  testCaching(null,'/out/data.foli.fi/citybike/smoove',false);
-  testCaching(null,'/out/92.62.36.215/RTIX/trip-updates',false);
+  testCaching(null,'/out/data.foli.fi/gtfs-rt/reittiopas',false);
   testCaching(null,'/out/stables.donkey.bike/api/public/gbfs/2/donkey_lappeenranta/en/station_status.json',false);
 });
 
