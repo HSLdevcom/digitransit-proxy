@@ -236,10 +236,6 @@ describe('waltti ui', function() {
   ];
 
   walttiCities.forEach(function(city) {
-    testRedirect('next-dev-'+city+'.digitransit.fi','/kissa','https://next-dev-'+city+'.digitransit.fi/kissa');
-    testProxying('next-dev-'+city+'.digitransit.fi','/','digitransit-ui-waltti-v3:8080', true);
-    testRedirect('next-dev-'+city+'.digitransit.fi','/kissa','https://next-dev-'+city+'.digitransit.fi/kissa');
-    testProxying('next-dev-'+city+'.digitransit.fi','/','digitransit-ui-waltti-v3:8080', true);
     testRedirect(city+'.digitransit.fi','/kissa','https://'+city+'.digitransit.fi/kissa');
     testProxying(city+'.digitransit.fi','/','digitransit-ui-waltti-v3:8080', true);
   });
@@ -272,8 +268,6 @@ describe('waltti ui', function() {
 
   testRedirect('dev-raasepori.digitransit.fi','/kissa','https://dev-raasepori.digitransit.fi/kissa');
   testProxying('dev-raasepori.digitransit.fi','/','digitransit-ui-waltti-v3:8080', true);
-  testRedirect('next-dev-raasepori.digitransit.fi','/kissa','https://next-dev-raasepori.digitransit.fi/kissa');
-  testProxying('next-dev-raasepori.digitransit.fi','/','digitransit-ui-waltti-v3:8080', true);
   testRedirect('bosse.digitransit.fi','/kissa','https://bosse.digitransit.fi/kissa');
   testProxying('bosse.digitransit.fi','/','digitransit-ui-waltti-v3:8080', true);
 
