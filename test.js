@@ -199,7 +199,7 @@ describe('hsl ui', function() {
     });
   });
 
-  testProxying('dev.reittiopas.fi','/etusivu','digitransit-ui-hsl-v2:8080', true);
+  testProxying('dev.reittiopas.fi','/etusivu','digitransit-ui-hsl-v3:8080', true);
 
   testRedirect('reittiopas.hsl.fi','/','https://hsl.fi/?fromJourneyPlanner=true', true);
   testProxying('reittiopas.hsl.fi','/kissa','digitransit-ui-hsl-v3:8080', true);
@@ -209,7 +209,7 @@ describe('hsl ui', function() {
   //next-dev site
   testRedirect('www.next-dev.digitransit.fi','/kissa','http://next-dev.digitransit.fi/kissa');
   testRedirect('next-dev.digitransit.fi','/kissa','https://next-dev.digitransit.fi/kissa');
-  testProxying('next-dev.digitransit.fi','/kissa','digitransit-ui-hsl-v3:8080', true);
+  testProxying('next-dev.digitransit.fi','/kissa','digitransit-ui-hsl-test:8080', true);
   testCaching('next-dev.digitransit.fi','/sw.js', true);
 });
 
