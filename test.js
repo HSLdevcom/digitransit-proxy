@@ -144,14 +144,6 @@ describe('api.digitransit.fi', function() {
     });
   });
 
-  const v1routers = ['finland', 'hsl', 'waltti'];
-
-  v1routers.forEach(function(router) {
-    testProxying('api.digitransit.fi',`/routing/v1/routers/${router}/index/graphql`, `opentripplanner-${router}:8080`);
-    testResponseHeader('api.digitransit.fi',`/routing-data/v2/${router}/router-config.json`, 'access-control-allow-origin', '*');
-    testProxying('api.digitransit.fi',`/routing-data/v2/${router}/router-config.json`,`opentripplanner-data-server-${router}:8080`);
-  });
-
   const v2routers = ['finland', 'hsl', 'waltti', 'waltti-alt', 'varely'];
 
   v2routers.forEach(function(router) {
