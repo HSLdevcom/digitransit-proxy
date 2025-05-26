@@ -221,15 +221,15 @@ describe('matka ui', function() {
 });
 
 describe('fintraffic ui', function() {
-  testRedirect('www.opas.fintraffic.fi','/kissa','http://opas.fintraffic.fi/kissa');
-  testRedirect('opas.fintraffic.fi','/kissa','https://opas.fintraffic.fi/kissa');
+  testRedirect('www.matka.fintraffic.fi','/kissa','http://matka.fintraffic.fi/kissa');
+  testRedirect('matka.fintraffic.fi','/kissa','https://matka.fintraffic.fi/kissa');
 
-  testProxying('opas.fintraffic.fi','/','digitransit-ui-matka-v3:8080', true);
+  testProxying('matka.fintraffic.fi','/','digitransit-ui-matka-v3:8080', true);
 
-  testCaching('opas.fintraffic.fi','/sw.js', true);
+  testCaching('matka.fintraffic.fi','/sw.js', true);
 
   it('https should not redirect', function(done) {
-    httpsGet('opas.fintraffic.fi','/kissa').end((err,res)=>{
+    httpsGet('matka.fintraffic.fi','/kissa').end((err,res)=>{
       expect(err).to.be.null;
       done();
     });
