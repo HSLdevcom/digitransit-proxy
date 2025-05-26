@@ -220,6 +220,22 @@ describe('matka ui', function() {
   });
 });
 
+describe('fintraffic ui', function() {
+  testRedirect('www.opas.fintraffic.fi','/kissa','http://opas.fintraffic.fi/kissa');
+  testRedirect('opas.fintraffic.fi','/kissa','https://opas.fintraffic.fi/kissa');
+
+  testProxying('opas.fintraffic.fi','/','digitransit-ui-matka-v3:8080', true);
+
+  testCaching('opas.fintraffic.fi','/sw.js', true);
+
+  it('https should not redirect', function(done) {
+    httpsGet('opas.fintraffic.fi','/kissa').end((err,res)=>{
+      expect(err).to.be.null;
+      done();
+    });
+  });
+});
+
 describe('waltti ui', function() {
   const walttiCities = [
     'hameenlinna', 'joensuu', 'jyvaskyla', 'kotka', 'kuopio', 'lahti', 'lappeenranta',
