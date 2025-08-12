@@ -299,9 +299,14 @@ describe('digitransit', function() {
 });
 
 describe('otp debug', function() {
+  testProxying('dev-hsl-debug.digitransit.fi','/','opentripplanner-hsl-v2:8080', true);
+  testProxying('dev-waltti-debug.digitransit.fi','/','opentripplanner-waltti-v2:8080', true);
+  testProxying('dev-finland-debug.digitransit.fi','/','opentripplanner-finland-v2:8080', true);
+  testProxying('dev-varely-debug.digitransit.fi','/','opentripplanner-varely-v2:8080', true);
   testProxying('hsl-debug.digitransit.fi','/','opentripplanner-hsl-v2:8080', true);
   testProxying('waltti-debug.digitransit.fi','/','opentripplanner-waltti-v2:8080', true);
   testProxying('finland-debug.digitransit.fi','/','opentripplanner-finland-v2:8080', true);
+  testProxying('varely-debug.digitransit.fi','/','opentripplanner-varely-v2:8080', true);
   testProxying('waltti-alt-debug.digitransit.fi','/','opentripplanner-waltti-alt-v2:8080', true);
 });
 
