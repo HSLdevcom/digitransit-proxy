@@ -34,7 +34,8 @@ sed -i "s#CDN_BASE_URL#${CDN_BASE_URL}#" /etc/nginx/common.conf
 sed -i "s/MOBILITY_API_KEY/${MOBILITY_API_KEY}/" /etc/nginx/external.conf
 
 #set basic auth
-htpasswd -c -B -b .htpasswd $WALTTI_TEST_CREDENTIALS_USER $WALTTI_TEST_CREDENTIALS_PASS &>/dev/null
+#htpasswd -c -B -b .htpasswd $WALTTI_TEST_CREDENTIALS_USER $WALTTI_TEST_CREDENTIALS_PASS &>/dev/null
+htpasswd -c -B -b .htpasswd $DEBUG_UI_CREDENTIALS_USER $DEBUG_UI_CREDENTIALS_PASS &>/dev/null
 
 #start nginx
 nginx

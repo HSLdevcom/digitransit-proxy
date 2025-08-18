@@ -298,16 +298,27 @@ describe('digitransit', function() {
   testProxying('digitransit.fi','/','digitransit-site:8080', true);
 });
 
-describe('otp debug', function() {
+describe('otp debug uis without authentication', function() {
   testProxying('dev-hsl-debug.digitransit.fi','/','opentripplanner-hsl-v2:8080', true);
   testProxying('dev-waltti-debug.digitransit.fi','/','opentripplanner-waltti-v2:8080', true);
   testProxying('dev-finland-debug.digitransit.fi','/','opentripplanner-finland-v2:8080', true);
   testProxying('dev-varely-debug.digitransit.fi','/','opentripplanner-varely-v2:8080', true);
-  testProxying('hsl-debug.digitransit.fi','/','opentripplanner-hsl-v2:8080', true);
-  testProxying('waltti-debug.digitransit.fi','/','opentripplanner-waltti-v2:8080', true);
-  testProxying('finland-debug.digitransit.fi','/','opentripplanner-finland-v2:8080', true);
-  testProxying('varely-debug.digitransit.fi','/','opentripplanner-varely-v2:8080', true);
   testProxying('waltti-alt-debug.digitransit.fi','/','opentripplanner-waltti-alt-v2:8080', true);
+});
+
+describe('otp debug UIs with authentication', function() {
+  testCallingWithoutCredentials('hsl-debug.digitransit.fi','/',true);
+  testWithCorrectCredentials('hsl-debug.digitransit.fi','/','test','test','https://hsl-debug.digitransit.fi/',true);
+  testCallingWithoutCredentials('waltti-debug.digitransit.fi','/',true);
+  testWithCorrectCredentials('waltti-debug.digitransit.fi','/','test','test','https://waltti-debug.digitransit.fi/',true);
+  testCallingWithoutCredentials('finland-debug.digitransit.fi','/',true);
+  testWithCorrectCredentials('finland-debug.digitransit.fi','/','test','test','https://finland-debug.digitransit.fi/',true);
+  testCallingWithoutCredentials('varely-debug.digitransit.fi','/',true);
+  testWithCorrectCredentials('varely-debug.digitransit.fi','/','test','test','https://varely-debug.digitransit.fi/',true);
+  testCallingWithoutCredentials('kela-debug.digitransit.fi','/',true);
+  testWithCorrectCredentials('kela-debug.digitransit.fi','/','test','test','https://kela-debug.digitransit.fi/',true);
+  testCallingWithoutCredentials('dev-kela-debug.digitransit.fi','/',true);
+  testWithCorrectCredentials('dev-kela-debug.digitransit.fi','/','test','test','https://dev-kela-debug.digitransit.fi/',true);
 });
 
 describe('ext-proxy', function() {
