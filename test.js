@@ -329,8 +329,6 @@ describe('ext-proxy', function() {
 });
 
 describe('waltti-test ui', function() {
-  // testCallingWithoutCredentials('waltti-test.digitransit.fi','/kissa','https://waltti-test.digitransit.fi/kissa');
-  // testWithCorrectCredentials('waltti-test.digitransit.fi','/kissa', 'test', 'test', 'https://waltti-test.digitransit.fi/kissa', true);
   testRedirect('waltti-test.digitransit.fi','/kissa','https://waltti-test.digitransit.fi/kissa');
   testProxying('waltti-test.digitransit.fi','/','digitransit-ui-waltti-test:8080', true);
 });
