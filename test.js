@@ -321,6 +321,13 @@ describe('otp debug UIs with authentication', function() {
   testWithCorrectCredentials('dev-kela-debug.digitransit.fi','/','test','test','https://dev-kela-debug.digitransit.fi/',true);
 });
 
+describe('monitoring setup', function() {
+  testRedirect('monitoring.digitransit.fi','/kissa','https://monitoring.digitransit.fi/kissa');
+  testProxying('monitoring.digitransit.fi','/','monitoring-setup-grafana.monitoring.svc.cluster.local:80', true);
+  testRedirect('dev-monitoring.digitransit.fi','/kissa','https://dev-monitoring.digitransit.fi/kissa');
+  testProxying('dev-monitoring.digitransit.fi','/','monitoring-setup-grafana.monitoring.svc.cluster.local:80', true);
+});
+
 describe('ext-proxy', function() {
   this.timeout(5000);
   testCaching(null,'/out/helsinki-fi.smoove.pro/api-public/stations',false);
