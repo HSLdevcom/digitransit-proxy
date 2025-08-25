@@ -108,6 +108,17 @@ function testWithCorrectCredentials(host, path, username, password, expectedUrl,
   });
 }
 
+function testResponseCode(host, path, code, secure=true) {
+  let fn = secure ? httpsGet : get;
+
+  it('request to ' + host + path + ' should return ' + code, function(done) {
+    fn(host, path).end((err, res) => {
+        expect(res).to.have.status(code);
+        done();
+      });
+  });
+}
+
 function testResponseHeader(host, path, header, headerValue) {
   it('http request to ' + host + path + ' should have response header: ' + header + ' should have value: ' + headerValue, function(done) {
     get(host,path).end((err,res)=>{
@@ -326,6 +337,31 @@ describe('monitoring setup', function() {
   testProxying('monitoring.digitransit.fi','/','monitoring-setup-grafana.monitoring.svc.cluster.local:8080', true);
   testRedirect('dev-monitoring.digitransit.fi','/kissa','https://dev-monitoring.digitransit.fi/kissa');
   testProxying('dev-monitoring.digitransit.fi','/','monitoring-setup-grafana.monitoring.svc.cluster.local:8080', true);
+});
+
+describe('otp debug UIs with path beginning with "/otp/actuators" should return 404', function() {
+  testResponseCode('hsl-debug.digitransit.fi','/otp/actuators', 404, true);
+  testResponseCode('waltti-debug.digitransit.fi','/otp/actuators', 404, true);
+  testResponseCode('finland-debug.digitransit.fi','/otp/actuators', 404, true);
+  testResponseCode('varely-debug.digitransit.fi','/otp/actuators', 404, true);
+  testResponseCode('kela-debug.digitransit.fi','/otp/actuators', 404, true);
+  testResponseCode('dev-kela-debug.digitransit.fi','/otp/actuators', 404, true);
+  testResponseCode('dev-hsl-debug.digitransit.fi','/otp/actuators', 404, true);
+  testResponseCode('dev-waltti-debug.digitransit.fi','/otp/actuators', 404, true);
+  testResponseCode('dev-finland-debug.digitransit.fi','/otp/actuators', 404, true);
+  testResponseCode('dev-varely-debug.digitransit.fi','/otp/actuators', 404, true);
+  testResponseCode('waltti-alt-debug.digitransit.fi','/otp/actuators', 404, true);
+  testResponseCode('hsl-debug.digitransit.fi','/otp/actuators/prometheus', 404, true);
+  testResponseCode('waltti-debug.digitransit.fi','/otp/actuators/prometheus', 404, true);
+  testResponseCode('finland-debug.digitransit.fi','/otp/actuators/prometheus', 404, true);
+  testResponseCode('varely-debug.digitransit.fi','/otp/actuators/prometheus', 404, true);
+  testResponseCode('kela-debug.digitransit.fi','/otp/actuators/prometheus', 404, true);
+  testResponseCode('dev-kela-debug.digitransit.fi','/otp/actuators/prometheus', 404, true);
+  testResponseCode('dev-hsl-debug.digitransit.fi','/otp/actuators/prometheus', 404, true);
+  testResponseCode('dev-waltti-debug.digitransit.fi','/otp/actuators/prometheus', 404, true);
+  testResponseCode('dev-finland-debug.digitransit.fi','/otp/actuators/prometheus', 404, true);
+  testResponseCode('dev-varely-debug.digitransit.fi','/otp/actuators/prometheus', 404, true);
+  testResponseCode('waltti-alt-debug.digitransit.fi','/otp/actuators/prometheus', 404, true);
 });
 
 describe('ext-proxy', function() {
