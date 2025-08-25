@@ -344,6 +344,17 @@ describe('otp debug UIs with path beginning with "/otp" should return 404', func
   testResponseCode('dev-finland-debug.digitransit.fi','/otp/actuators', 404, true);
   testResponseCode('dev-varely-debug.digitransit.fi','/otp/actuators', 404, true);
   testResponseCode('waltti-alt-debug.digitransit.fi','/otp/actuators', 404, true);
+  testResponseCode('hsl-debug.digitransit.fi','/otp/actuators/prometheus', 404, true);
+  testResponseCode('waltti-debug.digitransit.fi','/otp/actuators/prometheus', 404, true);
+  testResponseCode('finland-debug.digitransit.fi','/otp/actuators/prometheus', 404, true);
+  testResponseCode('varely-debug.digitransit.fi','/otp/actuators/prometheus', 404, true);
+  testResponseCode('kela-debug.digitransit.fi','/otp/actuators/prometheus', 404, true);
+  testResponseCode('dev-kela-debug.digitransit.fi','/otp/actuators/prometheus', 404, true);
+  testResponseCode('dev-hsl-debug.digitransit.fi','/otp/actuators/prometheus', 404, true);
+  testResponseCode('dev-waltti-debug.digitransit.fi','/otp/actuators/prometheus', 404, true);
+  testResponseCode('dev-finland-debug.digitransit.fi','/otp/actuators/prometheus', 404, true);
+  testResponseCode('dev-varely-debug.digitransit.fi','/otp/actuators/prometheus', 404, true);
+  testResponseCode('waltti-alt-debug.digitransit.fi','/otp/actuators/prometheus', 404, true);
 });
 
 describe('ext-proxy', function() {
