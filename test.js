@@ -323,9 +323,9 @@ describe('otp debug UIs with authentication', function() {
 
 describe('monitoring setup', function() {
   testRedirect('monitoring.digitransit.fi','/kissa','https://monitoring.digitransit.fi/kissa');
-  testProxying('monitoring.digitransit.fi','/','monitoring-setup-grafana.monitoring.svc.cluster.local:80', true);
+  testProxying('monitoring.digitransit.fi','/','monitoring-setup-grafana.monitoring.svc.cluster.local:8080', true);
   testRedirect('dev-monitoring.digitransit.fi','/kissa','https://dev-monitoring.digitransit.fi/kissa');
-  testProxying('dev-monitoring.digitransit.fi','/','monitoring-setup-grafana.monitoring.svc.cluster.local:80', true);
+  testProxying('dev-monitoring.digitransit.fi','/','monitoring-setup-grafana.monitoring.svc.cluster.local:8080', true);
 });
 
 describe('ext-proxy', function() {
