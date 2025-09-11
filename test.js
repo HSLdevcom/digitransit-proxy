@@ -321,7 +321,7 @@ describe('otp debug UIs with authentication', function() {
   testCallingWithoutCredentials('hsl-debug.digitransit.fi','/',true);
   testWithCorrectCredentials('hsl-debug.digitransit.fi','/','test','test','https://hsl-debug.digitransit.fi/',true);
   testCallingWithoutCredentials('waltti-debug.digitransit.fi','/',true);
-  testWithCorrectCredentials('waltti-debug.digitransit.fi','/','test','test','https://waltti-debug.digitransit.fi/',true);
+  testWithCorrectCredentials('waltti-debug.digitransit.fi','/','walttitest','walttitest','https://waltti-debug.digitransit.fi/',true);
   testCallingWithoutCredentials('finland-debug.digitransit.fi','/',true);
   testWithCorrectCredentials('finland-debug.digitransit.fi','/','test','test','https://finland-debug.digitransit.fi/',true);
   testCallingWithoutCredentials('varely-debug.digitransit.fi','/',true);
