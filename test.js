@@ -317,6 +317,53 @@ describe('otp debug uis without authentication', function() {
   testProxying('waltti-alt-debug.digitransit.fi','/','opentripplanner-waltti-alt-v2:8080', true);
 });
 
+describe('tampere salespoints endpoint', function() {
+  it('should return GeoJSON with CORS headers', function(done) {
+    get('api.digitransit.fi', '/waltti-assets/v1/tampere-salespoints')
+      .end((err, res) => {
+        expect(err).to.be.null;
+        expect(res).to.have.status(200);
+        expect(res).to.have.header('access-control-allow-origin', '*');
+
+        const json = parse(res.text);
+        expect(json).to.be.an('object');
+        expect(json).to.have.property('type', 'FeatureCollection');
+        done();
+      });
+  });
+});
+
+describe('oulu salespoints endpoint', function() {
+  it('should return GeoJSON with CORS headers', function(done) {
+    get('api.digitransit.fi', '/waltti-assets/v1/oulu-salespoints')
+      .end((err, res) => {
+        expect(err).to.be.null;
+        expect(res).to.have.status(200);
+        expect(res).to.have.header('access-control-allow-origin', '*');
+
+        const json = parse(res.text);
+        expect(json).to.be.an('object');
+        expect(json).to.have.property('type', 'FeatureCollection');
+        done();
+      });
+  });
+});
+
+describe('kotka salespoints endpoint', function() {
+  it('should return GeoJSON with CORS headers', function(done) {
+    get('api.digitransit.fi', '/waltti-assets/v1/kotka-salespoints')
+      .end((err, res) => {
+        expect(err).to.be.null;
+        expect(res).to.have.status(200);
+        expect(res).to.have.header('access-control-allow-origin', '*');
+        const json = parse(res.text);
+        expect(json).to.be.an('object');
+        expect(json).to.have.property('type', 'FeatureCollection');
+        done();
+      });
+  });
+});
+
 describe('otp debug UIs with authentication', function() {
   testCallingWithoutCredentials('hsl-debug.digitransit.fi','/',true);
   testWithCorrectCredentials('hsl-debug.digitransit.fi','/','test','test','https://hsl-debug.digitransit.fi/',true);
