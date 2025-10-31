@@ -319,7 +319,7 @@ describe('otp debug uis without authentication', function() {
 
 describe('tampere salespoints endpoint', function() {
   it('should return GeoJSON with CORS headers', function(done) {
-    get('api.digitransit.fi', '/waltti-assets/v1/tampere-salespoints')
+    get('api.digitransit.fi', '/waltti-assets/v1/salespoints/salespoints_tampere.geojson')
       .end((err, res) => {
         expect(err).to.be.null;
         expect(res).to.have.status(200);
@@ -335,7 +335,7 @@ describe('tampere salespoints endpoint', function() {
 
 describe('oulu salespoints endpoint', function() {
   it('should return GeoJSON with CORS headers', function(done) {
-    get('api.digitransit.fi', '/waltti-assets/v1/oulu-salespoints')
+    get('api.digitransit.fi', '/oulu-assets/v1/lipunmyyntipisteet')
       .end((err, res) => {
         expect(err).to.be.null;
         expect(res).to.have.status(200);
@@ -351,7 +351,7 @@ describe('oulu salespoints endpoint', function() {
 
 describe('kotka salespoints endpoint', function() {
   it('should return GeoJSON with CORS headers', function(done) {
-    get('api.digitransit.fi', '/waltti-assets/v1/kotka-salespoints')
+    get('api.digitransit.fi', '/waltti-assets/v1/salespoints/salespoints_kotka.json')
       .end((err, res) => {
         expect(err).to.be.null;
         expect(res).to.have.status(200);
