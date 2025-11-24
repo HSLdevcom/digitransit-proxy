@@ -249,7 +249,7 @@ describe('fintraffic ui', function() {
 
 describe('waltti ui', function() {
   const walttiCities = [
-    'hameenlinna', 'joensuu', 'jyvaskyla', 'kotka', 'lahti', 'lappeenranta',
+    'hameenlinna', 'joensuu', 'jyvaskyla', 'kotka', 'kuopio', 'lahti', 'lappeenranta',
     'mikkeli', 'turku', 'tampere','kouvola', 'rovaniemi','vaasa'
   ];
 
@@ -291,8 +291,6 @@ describe('waltti ui', function() {
 
   testRedirect('reittiopas.kuopio.fi','/kissa','https://reittiopas.kuopio.fi/kissa');
   testProxying('reittiopas.kuopio.fi','/','digitransit-ui-waltti-v3:8080', true);
-  testRedirect('kuopio.digitransit.fi','/kissa','https://reittiopas.kuopio.fi/kissa');
-  
   it('https should not redirect', function(done) {
     httpsGet('turku.digitransit.fi','/kissa').end((err,res)=>{
       expect(err).to.be.null;
