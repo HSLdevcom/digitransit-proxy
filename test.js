@@ -289,6 +289,8 @@ describe('waltti ui', function() {
   testRedirect('bosse.digitransit.fi','/kissa','https://bosse.digitransit.fi/kissa');
   testProxying('bosse.digitransit.fi','/','digitransit-ui-waltti-v3:8080', true);
 
+  testRedirect('reittiopas.kuopio.fi','/kissa','https://reittiopas.kuopio.fi/kissa');
+  testProxying('reittiopas.kuopio.fi','/','digitransit-ui-waltti-v3:8080', true);
   it('https should not redirect', function(done) {
     httpsGet('turku.digitransit.fi','/kissa').end((err,res)=>{
       expect(err).to.be.null;
