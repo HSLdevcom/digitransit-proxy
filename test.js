@@ -383,7 +383,14 @@ describe('otp debug UIs with authentication', function() {
   testWithCorrectCredentials('dev-kela-debug.digitransit.fi','/','test','test','https://dev-kela-debug.digitransit.fi/',true);
 });
 
-describe('otp debug UIs with path beginning with "/otp" should return 404', function() {
+describe('monitoring setup', function() {
+  testRedirect('monitoring.digitransit.fi','/kissa','https://monitoring.digitransit.fi/kissa');
+  testProxying('monitoring.digitransit.fi','/','monitoring-setup-grafana.monitoring.svc.cluster.local:8080', true);
+  testRedirect('dev-monitoring.digitransit.fi','/kissa','https://dev-monitoring.digitransit.fi/kissa');
+  testProxying('dev-monitoring.digitransit.fi','/','monitoring-setup-grafana.monitoring.svc.cluster.local:8080', true);
+});
+
+describe('otp debug UIs with path beginning with "/otp/actuators" should return 404', function() {
   testResponseCode('hsl-debug.digitransit.fi','/otp/actuators', 404, true);
   testResponseCode('waltti-debug.digitransit.fi','/otp/actuators', 404, true);
   testResponseCode('finland-debug.digitransit.fi','/otp/actuators', 404, true);
