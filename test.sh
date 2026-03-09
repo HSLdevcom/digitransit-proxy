@@ -27,7 +27,7 @@ CONTAINER_ID=$(docker run -d -p 9000:8080 $ADDHOSTS -e VILKKU_BASIC_AUTH="\"test
   -e PORI_RT_BASIC_AUTH="\"test\"" -e MH_BASIC_AUTH="\"test\"" -e RAASEPORI_RT_BASIC_AUTH="\"test\"" \
   -e WALTTI_TEST_CREDENTIALS_USER="walttitest" -e WALTTI_TEST_CREDENTIALS_PASS="walttitest" -e WALTTI_TEST_STATIC_BASIC_AUTH="\"test\"" \
   -e DEBUG_UI_CREDENTIALS_USER="test" -e DEBUG_UI_CREDENTIALS_PASS="test" \
-  -e MOBILITY_API_KEY="\"test\"" -e CDN_BASE_URL="test" -e FRENDS_API_KEY="\"test\”" \
+  -e MOBILITY_API_KEY="\"test\"" -e CDN_BASE_URL="test" -e FRENDS_API_KEY="test" \
   hsldevcom/digitransit-proxy:integrationtest)
 
 curl -v http://127.0.0.1:9000
