@@ -32,6 +32,7 @@ sed -i "s/NYSSE_BASIC_AUTH/${NYSSE_BASIC_AUTH}/" /etc/nginx/external.conf
 sed -i "s/WALTTI_TEST_STATIC_BASIC_AUTH/${WALTTI_TEST_STATIC_BASIC_AUTH}/" /etc/nginx/external.conf
 sed -i "s#CDN_BASE_URL#${CDN_BASE_URL}#" /etc/nginx/common.conf
 sed -i "s/MOBILITY_API_KEY/${MOBILITY_API_KEY}/" /etc/nginx/external.conf
+sed -i "s/FRENDS_API_KEY/${FRENDS_API_KEY}/" /etc/nginx/external.conf
 
 #set basic auth
 htpasswd -c -B -b .htpasswd $DEBUG_UI_CREDENTIALS_USER $DEBUG_UI_CREDENTIALS_PASS &>/dev/null
