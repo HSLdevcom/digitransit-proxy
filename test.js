@@ -410,7 +410,7 @@ describe('otp debug UIs with path beginning with "/otp" should return 404', func
 
 describe('ext-proxy', function() {
   this.timeout(5000);
-  testCaching(null,'/out/helsinki-fi.smoove.pro/api-public/stations',false);
+  testCaching(null,'/out/gbfs.theta.fifteen.eu/gbfs/2.2/helsinki/en/gbfs.json',false);
   testCaching(null,'/out/data.foli.fi/gtfs-rt/reittiopas',false);
   testCaching(null,'/out/stables.donkey.bike/api/public/gbfs/2/donkey_lappeenranta/en/station_status.json',false);
 });
