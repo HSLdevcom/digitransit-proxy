@@ -19,11 +19,10 @@
     "node": ">=5.0",
     "npm": ">=3.0"
   },
-  "dependencies": {},
   "devDependencies": {
-    "mocha": "^3.2.0",
-    "chai-http": "^3.0.0",
     "chai": "^3.5.0",
-    "mime": ">=2.2.0"
+    "chai-http": "^3.0.0",
+    "mime": ">=2.2.0",
+    "mocha": "^3.2.0"
   }
 }
