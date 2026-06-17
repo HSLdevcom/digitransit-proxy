@@ -37,3 +37,17 @@ jobs:
           DOCKER_USER: ${{ secrets.DOCKER_USER }}
           DOCKER_AUTH: ${{ secrets.DOCKER_AUTH }}
           DOCKER_BASE_TAG: latest
+  generate-sbom:
+    if: github.ref == 'refs/heads/master'
+    needs:
+      - test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate SBOM
+        run: yarn dlx -q @cyclonedx/yarn-plugin-cyclonedx@2.0.0 --output-file ${{ github.repository }}-${{ github.sha }}.json
+
+      - name: Save SBOM artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: sbom-artifact
+          path: ${{ github.repository }}-${{ github.sha }}.json
