@@ -1,4 +1,9 @@
 .pnp.cjs
 .pnp.loader.mjs
-.yarn
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
 node_modules

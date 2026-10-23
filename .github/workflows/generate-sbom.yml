@@ -1,0 +1,41 @@
+name: Generate SBOM
+
+# Shared by dev-pipeline.yml and prod-pipeline.yml so the SBOM
+# generation/upload logic only needs to be maintained in one place. Callers
+# must pass `secrets: inherit` so this workflow can read the SBOM_* secrets
+# directly.
+on:
+  workflow_call:
+    inputs:
+      artifact-name:
+        description: 'Name for the uploaded SBOM artifact'
+        required: true
+        type: string
+
+permissions:
+  id-token: write
+  contents: read
+
+env:
+  NODE_VERSION: 24.14.1
+
+jobs:
+  generate-sbom:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Setup Node, install dependencies
+        uses: ./.github/actions/setup
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Generate SBOM
+        run: yarn dlx -q @cyclonedx/yarn-plugin-cyclonedx@2.0.0 --output-file ${{ github.repository }}-${{ github.sha }}.json
+
+      - name: Save SBOM artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: ${{ inputs.artifact-name }}
+          path: ${{ github.repository }}-${{ github.sha }}.json
+
