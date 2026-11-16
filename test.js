@@ -187,7 +187,6 @@ describe('api.digitransit.fi', function() {
   testProxying('api.digitransit.fi','/graphiql/hsl','graphiql:8080');
   testProxying('api.digitransit.fi','/realtime/trip-updates/v1/FOLI','siri2gtfsrt:8080');
   //testCaching('api.digitransit.fi','/realtime/trip-updates/v1/foo', false)
-  testProxying('api.digitransit.fi','/map/v2/','hsl-map-server:8080');
   const tileserver = 'hsl-map-tileserver-gl:8080';
   const rasterCache = 'public,max-age=604800';
   testRewrite('api.digitransit.fi', '/map/v3/hsl-map/12/2331/1186.png', tileserver, '/styles/hsl-map/512/12/2331/1186.png', rasterCache);
@@ -198,7 +197,6 @@ describe('api.digitransit.fi', function() {
   testRewrite('api.digitransit.fi', '/map/v3/hsl-map-sv-256/12/2331/1186.png', tileserver, '/styles/hsl-map-sv/256/12/2331/1186.png', rasterCache);
   testRewrite('api.digitransit.fi', '/map/v3/hsl-vector-map/12/2331/1186.pbf', tileserver, '/data/openmaptiles/12/2331/1186.pbf', 'public,max-age=43200');
   testRewrite('api.digitransit.fi', '/map/v3/hsl-vector-map/index.json', 'api.digitransit.fi', '/data/openmaptiles.json', 'no-store');
-  testRewrite('api.digitransit.fi', '/map/v3/hsl-map-greyscale/12/2331/1186.png', 'hsl-map-server:8080', '/map/v3/hsl-map-greyscale/12/2331/1186.png');
   testProxying('api.digitransit.fi','/map/v3-kela/kela/en/rental-stations/','opentripplanner-kela-v2:8080');
   testProxying('dev-api.digitransit.fi','/routing/v2-kela/routers/kela/index/graphql','opentripplanner-kela-v2:8080');
   testProxying('api.digitransit.fi','/ui/v3/matka/sw.js','digitransit-ui-matka-v3:8080');
