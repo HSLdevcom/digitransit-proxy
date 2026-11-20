@@ -5,6 +5,9 @@ docker build -t hsldevcom/digitransit-proxy:integrationtest .
 
 PROXIED_HOSTS=$(grep proxy_pass ./*.conf|cut -d'/' -f4|cut -d':' -f1|grep -v "\."|sort|uniq)
 
+# Add monitoring host
+PROXIED_HOSTS="$PROXIED_HOSTS"$'\n'"monitoring-setup-grafana.monitoring.svc.cluster.local"
+
 TARGETHOST=$(node ./tools/getMyLocalIp.js)
 
 echo "$PROXIED_HOSTS"
